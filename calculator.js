@@ -100,7 +100,7 @@ const div = (x, y) => x / y;
 const calculate = function(user_input) {
 
   // assign variables 
-  const operand = user_input['operation'] ;
+  const operator = user_input['operation'] ;
   const num1 = user_input['num1'];
   const num2 = user_input['num2']; 
 
@@ -116,32 +116,32 @@ const calculate = function(user_input) {
   }
 
   // add
-  else if( (operand === 'add') || (operand === '+') ) {
+  else if( (operator === 'add') || (operator === '+') ) {
     console.log(`${num1} + ${num2} = ${add(num1, num2)}`);
   }
 
   // subtract
-  else if( (operand === 'subtract') || (operand === '-') ) {
+  else if( (operator === 'subtract') || (operator === '-') ) {
     console.log(`${num1} - ${num2} = ${sub(num1, num2)}`);
   }
 
   // multiply 
-  else if( (operand === 'multiply') || (operand === '*') ) {
+  else if( (operator === 'multiply') || (operator === '*') ) {
     console.log(`${num1} * ${num2} = ${mult(num1, num2)}`);
   }
 
   // divide 
-  else if( ((operand === 'divide') || (operand === '/')) && num2 === 0 ) {
+  else if( ((operator === 'divide') || (operator === '/')) && num2 === 0 ) {
     console.log('Error: Cannot divide by zero');
   }
 
-  else if( ((operand === 'divide') || (operand === '/')) && num2 != 0 ) {
+  else if( ((operator === 'divide') || (operator === '/')) && num2 != 0 ) {
     console.log(`${num1} / ${num2} = ${div(num1, num2)}`);
   }
 
   // print error for invalid operations
   else {
-    console.log(`\"${operand}\" is not a valid operation.`);
+    console.log(`\"${operator}\" is not a valid operation.`);
   }
 
 }
