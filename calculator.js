@@ -28,28 +28,37 @@ const exampleDivisionInput = {
 
 // Example Erroneous Inputs 
 const exampleBadInput1 = {
-  num1: '1',
-  num2: '2',
+  num1: [],
+  num2: {number: 1},
   operation: 'add',
 }
 
 const exampleBadInput2 = {
-  num1: 'heh',
-  num2: {},
+  num1: 'foo',
+  num2: 'bar',
   operation: 'add',
 }
 
+// Helper Function 
+const checknum = function(value) {
+  if( typeof value !== 'number' ) {
+    return false;
+  } 
+  return true; 
+} 
 
 // Main Function 
 const calculate = function(user_input) {
 
   // check valid nums 
-  if( typeof user_input['num1'] && typeof user_input['num2'] !== 'number' ) {
+  if ( (checknum(user_input['num1']) && checknum(user_input['num2'])) === false ) {
     console.log(`Both \"${user_input['num1']}\" and \"${user_input['num2']}\" are invalid numbers.`);
-  } else if( typeof user_input['num1'] !== 'number' ) {
-    console.log(`\"${user_input['num1']}\" is an invalid number.`);
-  } else if( typeof user_input['num2'] !== 'number' ) {
-    console.log(`\"${user_input['num2']}\" is an invalid number.`);
+  } 
+  else if( checknum(user_input['num1']) === false ) {
+    console.log(`\"${user_input['num1']}\" is an invalid number.`)
+  } 
+  else if( checknum(user_input['num2']) === false ) {
+    console.log(`\"${user_input['num2']}\" is an invalid number.`)
   }
 
   // add
