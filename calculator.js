@@ -1,6 +1,6 @@
 // calculator.js
 
-// Example Inputs
+// Example Valid Inputs 
 const exampleAdditionInput1 = {
   num1: 3,
   num2: 5,
@@ -49,6 +49,7 @@ const exampleDivisionInput2 = {
   operation: 'divide',
 }
 
+// Example Invalid Inputs
 const exampleBadInput1 = {
   num1: 1,
   num2: 2,
@@ -90,7 +91,7 @@ const checknum = function(value) {
 // Main Function 
 const calculate = function(user_input) {
 
-  // Assign Variables 
+  // assign variables 
   const operand = user_input['operation'] ;
   const num1 = user_input['num1'];
   const num2 = user_input['num2']; 
@@ -154,7 +155,7 @@ calculate(exampleMultiplicationInput2);
 calculate(exampleDivisionInput1); 
 calculate(exampleDivisionInput2); 
 
-// incorrect input responses
+// incorrect user input responses
 calculate(exampleBadInput1);
 calculate(exampleBadInput2);
 calculate(exampleBadInput3);
