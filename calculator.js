@@ -94,6 +94,7 @@ const calculate = function(user_input) {
   const operand = user_input['operation'] ;
   const num1 = user_input['num1'];
   const num2 = user_input['num2']; 
+  let result = null;
 
   // check valid nums 
   if ( (checknum(num1) === false) && (checknum(num2) === false) ) {
@@ -108,17 +109,20 @@ const calculate = function(user_input) {
 
   // add
   else if( (operand === 'add') || (operand === '+') ) {
-    console.log(num1 + num2);
+    result = num1 + num2; 
+    console.log(`${num1} + ${num2} = ${result}`);
   }
 
   // subtract
   else if( (operand === 'subtract') || (operand === '-') ) {
-    console.log(num1 - num2);
+    result = num1 - num2; 
+    console.log(`${num1} - ${num2} = ${result}`);
   }
 
   // multiply 
   else if( (operand === 'multiply') || (operand === '*') ) {
-    console.log(num1 * num2);
+    result = num1 * num2; 
+    console.log(`${num1} * ${num2} = ${result}`);
   }
 
   // divide 
@@ -127,7 +131,8 @@ const calculate = function(user_input) {
   }
 
   else if( ((operand === 'divide') || (operand === '/')) && num2 != 0 ) {
-    console.log(num1 / num2);
+    result = num1 / num2; 
+    console.log(`${num1} / ${num2} = ${result}`);
   }
 
   // print error for invalid operations
@@ -137,9 +142,9 @@ const calculate = function(user_input) {
 
 }
 
-// Test Function Calls
+// Function Call Tests 
 
-// Successful calculations 
+// successful calculations 
 calculate(exampleAdditionInput1); 
 calculate(exampleAdditionInput2); 
 calculate(exampleSubtractionInput1); 
@@ -149,7 +154,7 @@ calculate(exampleMultiplicationInput2);
 calculate(exampleDivisionInput1); 
 calculate(exampleDivisionInput2); 
 
-// Error messages
+// incorrect input responses
 calculate(exampleBadInput1);
 calculate(exampleBadInput2);
 calculate(exampleBadInput3);
