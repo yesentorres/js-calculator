@@ -1,28 +1,52 @@
 // calculator.js
 
 // Example Inputs
-const exampleAdditionInput = {
+const exampleAdditionInput1 = {
   num1: 3,
   num2: 5,
   operation: '+',
 }
 
-const exampleSubtractionInput = {
+const exampleAdditionInput2 = {
+  num1: 3,
+  num2: 5,
+  operation: 'add',
+}
+
+const exampleSubtractionInput1 = {
   num1: 3,
   num2: 5,
   operation: '-',
 }
 
-const exampleMultiplicationInput = {
+const exampleSubtractionInput2 = {
+  num1: 3,
+  num2: 5,
+  operation: 'subtract',
+}
+
+const exampleMultiplicationInput1 = {
   num1: 3,
   num2: 5,
   operation: '*',
 }
 
-const exampleDivisionInput = {
+const exampleMultiplicationInput2 = {
+  num1: 3,
+  num2: 5,
+  operation: 'multiply',
+}
+
+const exampleDivisionInput1 = {
   num1: 3,
   num2: 5,
   operation: '/',
+}
+
+const exampleDivisionInput2 = {
+  num1: 3,
+  num2: 5,
+  operation: 'divide',
 }
 
 const exampleBadInput1 = {
@@ -47,6 +71,12 @@ const exampleBadInput4 = {
   num1: 1,
   num2: 'bar',
   operation: 'add',
+}
+
+const exampleBadInput5 = {
+  num1: 1,
+  num2: 0,
+  operation: 'divide',
 }
 
 // Helper Function 
@@ -82,7 +112,7 @@ const calculate = function(user_input) {
   }
 
   // subtract
-  else if( (operand === 'subtrct') || (operand === '-') ) {
+  else if( (operand === 'subtract') || (operand === '-') ) {
     console.log(num1 - num2);
   }
 
@@ -92,7 +122,11 @@ const calculate = function(user_input) {
   }
 
   // divide 
-  else if( (operand === 'divide') || (operand === '/') ) {
+  else if( ((operand === 'divide') || (operand === '/')) && num2 === 0 ) {
+    console.log('Error: Cannot divide by zero');
+  }
+
+  else if( ((operand === 'divide') || (operand === '/')) && num2 != 0 ) {
     console.log(num1 / num2);
   }
 
@@ -103,13 +137,21 @@ const calculate = function(user_input) {
 
 }
 
-// Call Method 
-calculate(exampleAdditionInput); 
-calculate(exampleSubtractionInput); 
-calculate(exampleMultiplicationInput); 
-calculate(exampleDivisionInput); 
+// Test Function Calls
 
+// Successful calculations 
+calculate(exampleAdditionInput1); 
+calculate(exampleAdditionInput2); 
+calculate(exampleSubtractionInput1); 
+calculate(exampleSubtractionInput2); 
+calculate(exampleMultiplicationInput1); 
+calculate(exampleMultiplicationInput2); 
+calculate(exampleDivisionInput1); 
+calculate(exampleDivisionInput2); 
+
+// Error messages
 calculate(exampleBadInput1);
 calculate(exampleBadInput2);
 calculate(exampleBadInput3);
 calculate(exampleBadInput4);
+calculate(exampleBadInput5);
