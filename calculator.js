@@ -80,13 +80,21 @@ const exampleBadInput5 = {
   operation: 'divide',
 }
 
-// Helper Function 
+// Helper Functions 
 const checknum = function(value) {
   if( typeof value !== 'number' ) {
     return false;
   } 
   return true; 
 } 
+
+const add = (x, y) => x + y ;
+
+const sub =(x, y) => x - y;
+
+const mult = (x, y) => x * y ;
+
+const div = (x, y) => x / y;
 
 // Main Function 
 const calculate = function(user_input) {
@@ -95,7 +103,6 @@ const calculate = function(user_input) {
   const operand = user_input['operation'] ;
   const num1 = user_input['num1'];
   const num2 = user_input['num2']; 
-  let result = null;
 
   // check valid nums 
   if ( (checknum(num1) === false) && (checknum(num2) === false) ) {
@@ -110,20 +117,17 @@ const calculate = function(user_input) {
 
   // add
   else if( (operand === 'add') || (operand === '+') ) {
-    result = num1 + num2; 
-    console.log(`${num1} + ${num2} = ${result}`);
+    console.log(`${num1} + ${num2} = ${add(num1, num2)}`);
   }
 
   // subtract
   else if( (operand === 'subtract') || (operand === '-') ) {
-    result = num1 - num2; 
-    console.log(`${num1} - ${num2} = ${result}`);
+    console.log(`${num1} - ${num2} = ${sub(num1, num2)}`);
   }
 
   // multiply 
   else if( (operand === 'multiply') || (operand === '*') ) {
-    result = num1 * num2; 
-    console.log(`${num1} * ${num2} = ${result}`);
+    console.log(`${num1} * ${num2} = ${mult(num1, num2)}`);
   }
 
   // divide 
@@ -132,8 +136,7 @@ const calculate = function(user_input) {
   }
 
   else if( ((operand === 'divide') || (operand === '/')) && num2 != 0 ) {
-    result = num1 / num2; 
-    console.log(`${num1} / ${num2} = ${result}`);
+    console.log(`${num1} / ${num2} = ${div(num1, num2)}`);
   }
 
   // print error for invalid operations
@@ -144,7 +147,6 @@ const calculate = function(user_input) {
 }
 
 // Function Call Tests 
-
 // successful calculations 
 calculate(exampleAdditionInput1); 
 calculate(exampleAdditionInput2); 
@@ -154,7 +156,6 @@ calculate(exampleMultiplicationInput1);
 calculate(exampleMultiplicationInput2); 
 calculate(exampleDivisionInput1); 
 calculate(exampleDivisionInput2); 
-
 // incorrect user input responses
 calculate(exampleBadInput1);
 calculate(exampleBadInput2);
