@@ -26,11 +26,34 @@ const exampleDivisionInput = {
   operation: 'divide',
 }
 
+// Example Erroneous Inputs 
+const exampleBadInput1 = {
+  num1: '1',
+  num2: '2',
+  operation: 'add',
+}
+
+const exampleBadInput2 = {
+  num1: 'heh',
+  num2: {},
+  operation: 'add',
+}
+
+
 // Main Function 
 const calculate = function(user_input) {
 
+  // check valid nums 
+  if( typeof user_input['num1'] && typeof user_input['num2'] !== 'number' ) {
+    console.log(`Both \"${user_input['num1']}\" and \"${user_input['num2']}\" are invalid numbers.`);
+  } else if( typeof user_input['num1'] !== 'number' ) {
+    console.log(`\"${user_input['num1']}\" is an invalid number.`);
+  } else if( typeof user_input['num2'] !== 'number' ) {
+    console.log(`\"${user_input['num2']}\" is an invalid number.`);
+  }
+
   // add
-  if( user_input['operation'] === ('add' || '+') ) {
+  else if( user_input['operation'] === ('add' || '+') ) {
     console.log(user_input['num1'] + user_input['num2']);
   }
 
@@ -49,7 +72,7 @@ const calculate = function(user_input) {
     console.log(user_input['num1'] / user_input['num2']);
   }
 
-  // handle erroneous user input 
+  // print error for invalid operations
   else {
     console.log(`\"${user_input['operation']}\" is not a valid operation.`);
   }
@@ -62,3 +85,6 @@ calculate(exampleAdditionInput);
 calculate(exampleSubtractionInput); 
 calculate(exampleMultiplicationInput); 
 calculate(exampleDivisionInput); 
+
+calculate(exampleBadInput1);
+calculate(exampleBadInput2);
